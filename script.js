@@ -31,14 +31,16 @@ body{
 
 #start{
     margin-bottom: 30px;
-    width: 500px;
+    width: 90%;
+    max-width: 500px;
     height: 200px;
     font-size: 50px;
     background-color: rgb(132, 255, 255);
 }
 #stop{
     margin-bottom: 30px;
-    width: 500px;
+    width: 90%;
+    max-width: 500px;
     height: 150px;
     font-size: 50px;
     background-color: rgb(190, 255, 255);
@@ -55,6 +57,9 @@ button{
     color: #000000;
     touch-action: manipulation;
     user-select: none;
+    cursor:pointer;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout:none;
 }
 
 button:hover {
