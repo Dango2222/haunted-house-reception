@@ -1,83 +1,94 @@
-//count
-let waiting = 0;
-
-function update(){
-    document.getElementById("count").textContent =
-    `現在${waiting}組待ち`;
+body{
+    text-align: center;
+    background-color: #f0f2f5;    
+    color: #000;
+    font-size: 60px;
+    margin: 20px;
+    font-family: "Yu Gothic", "Hiragino Sans", sans-serif;
+    user-select: none;
 }
 
-update();
 
-document.getElementById("plus").onclick = function(){
-    waiting++;
-    update();
+#buttons{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
 }
 
-document.getElementById("minus").onclick = function(){
-
-    if(waiting > 0){
-        waiting--;
-    }
-
-    update();
+#count{
+    font-size: 100px;
+    margin: 0px;
 }
 
-//timer
-const stopButton = document.getElementById("stop");
-
-let seconds = 0;
-let timerId = null;
-
-function updateTimer() {
-
-    let min = Math.floor(seconds / 60);
-    let sec = seconds % 60;
-
-    document.getElementById("timer").textContent =
-        `${String(min).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
-
+#bt{
+    margin-bottom: 0px;
+    font-size: 70px;
 }
-function startTimer() {
-    stopButton.textContent = "ストップ";    
-
-    if (timerId !== null) return; // すでに動いている
-
-    timerId = setInterval(function () {
-        seconds++;
-        updateTimer();
-    }, 1000);
-}
-function stopTimer() {
-
-    clearInterval(timerId);
-
-    timerId = null;
+#timer{
+    margin-top: 10px;
+    font-size: 100px;
 }
 
-document.getElementById("start").addEventListener("click", function () {
-    seconds = 0;
-    updateTimer();
-    startTimer();
-    if(waiting > 0){
-        waiting--;
-        update();
-    }
-});
+#start{
+    margin-bottom: 30px;
+    width: 500px;
+    height: 200px;
+    font-size: 50px;
+    background-color: rgb(132, 255, 255);
+}
+#stop{
+    margin-bottom: 30px;
+    width: 500px;
+    height: 150px;
+    font-size: 50px;
+    background-color: rgb(190, 255, 255);
+}
 
-document.getElementById("stop").addEventListener("click", function () {  
-    if (seconds > 0){  
-        if (timerId === null) {
+button{
+    width: 180px;
+    height: 150px;
+    max-width: 40vw;
+    font-size: 100px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ccced2;
+    color: #000000;
+    touch-action: manipulation;
+    user-select: none;
+}
 
-            // 停止中 → 再開
-            startTimer();
-            
-        } else {
+button:hover {
+  opacity: 0.7;
+}
 
-            // 動作中 → 停止
-            stopTimer();
-            stopButton.textContent = "スタート";
+p{
+    margin-bottom: 10px;
+}
 
-        }
-    }
+.card{
+    background-color: #f0f2f5;  
+    border-radius: 15px;
 
-});
+    display: flex;
+
+    flex-direction: column;   /* ←縦に並べる */
+
+    justify-content: center;  /* ←上下中央 */
+
+    align-items: center;      /* ←左右中央 */
+
+    margin: auto;
+
+    box-shadow: 5px 5px 10px rgb(164, 164, 164);
+
+    margin-bottom: 100px;
+    width:90%;
+    max-width:1000px;
+}
+
+#waitcount{
+    padding: 100px 0;
+}
+#timers{
+    padding: 50px 0;
+}
