@@ -94,3 +94,54 @@ p {
     width: 90%;
     max-width: 1000px;
     padding: 50px 0;
+}
+
+
+/* ==========================================
+   📱 スマホ用の調整 (画面幅768px以下)
+   ========================================== */
+@media (max-width: 768px) {
+    /* ボディのフォントサイズを小さく */
+    body { font-size: 16px; }
+
+    /* タイトル */
+    #ti h1 {
+        font-size: 32px; /* 38px から 32px に縮小 */
+        white-space: normal;
+        margin-bottom: 20px;
+    }
+
+    /* 文字サイズ全体の調整 */
+    #count { font-size: 32px; }   /* 45px から 32px にダウン。これで一行に収まるはず */
+    #bt { font-size: 24px; }     /* 前回の入場から... */
+    #timer { font-size: 48px; }   /* タイマー数字 */
+
+    /* カードの上下パディングを大幅削減！これで「でかすぎ」を解消 */
+    #waitcount { padding: 30px 0; }
+    #timers { padding: 20px 0; }
+    .card { margin-bottom: 40px; } /* カード同士の間隔も狭める */
+
+    /* ボタンエリアの幅と間隔 */
+    #buttons {
+        gap: 15px; /* ボタン同士の間隔をさらに狭く */
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    /* プラス・マイナスボタンをさらに小さく（中央寄せのため） */
+    button {
+        width: 45%;   /* 左右に配置するために45% */
+        height: 80px; /* 高さを抑える */
+        font-size: 50px;
+    }
+
+    /* 入場・ストップボタン */
+    #start, #stop {
+        width: 90%;   /* カードの幅いっぱいにする */
+        font-size: 24px; /* 文字を小さく */
+        margin-bottom: 15px;
+    }
+    #start { height: 80px; }
+    #stop { height: 60px; }
+}
