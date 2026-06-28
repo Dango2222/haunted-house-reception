@@ -1,42 +1,49 @@
-body{
+body {
     text-align: center;
     background-color: #f0f2f5;    
     color: #000;
-    font-size: clamp(35px, 8vw, 60px);
+    font-size: 20px; /* bodyは標準的なサイズにしておく */
     margin: 20px;
     font-family: "Yu Gothic", "Hiragino Sans", sans-serif;
-    white-space: nowrap;
 }
 
-    
-#buttons{
+/* タイトル専用のスタイル（PCサイズ） */
+#ti h1 {
+    font-size: clamp(35px, 5vw, 50px);
+    margin-bottom: 40px;
+    white-space: nowrap; /* PCでは改行しない */
+}
+
+#buttons {
     display: flex;
     justify-content: center;
     gap: 100px;
 }
 
-#count{
+#count {
     font-size: 100px;
     margin: 0px;
 }
 
-#bt{
+#bt {
     margin-bottom: 0px;
     font-size: 70px;
 }
-#timer{
+
+#timer {
     margin-top: 10px;
     font-size: 100px;
 }
 
-#start{
+#start {
     margin-bottom: 30px;
     width: 500px;
     height: 200px;
     font-size: 50px;
     background-color: rgb(132, 255, 255);
 }
-#stop{
+
+#stop {
     margin-bottom: 30px;
     width: 500px;
     height: 150px;
@@ -44,8 +51,10 @@ body{
     background-color: rgb(190, 255, 255);
 }
 
-button{
+button {
     touch-action: manipulation;
+    -webkit-user-select: none; /* 連打時の青反転を防止 */
+    user-select: none;
     width: 180px;
     height: 150px;
     font-size: 100px;
@@ -56,39 +65,73 @@ button{
 }
 
 button:active {
-  opacity: 0.7;
+    opacity: 0.7;
 }
 
-p{
+p {
     margin-bottom: 10px;
 }
 
-.card{
+.card {
     background-color: #f0f2f5;  
     border-radius: 15px;
-
     display: flex;
-
-    flex-direction: column;   /* ←縦に並べる */
-
-    justify-content: center;  /* ←上下中央 */
-
-    align-items: center;      /* ←左右中央 */
-
+    flex-direction: column;   /* 縦に並べる */
+    justify-content: center;  /* 上下中央 */
+    align-items: center;      /* 左右中央 */
     margin: auto;
-
     box-shadow: 5px 5px 10px rgb(164, 164, 164);
-
     margin-bottom: 100px;
 }
 
-#waitcount{
+#waitcount {
     width: 90%;
-    max-width:1000px;
+    max-width: 1000px;
     padding: 100px 0;
 }
-#timers{
+
+#timers {
     width: 90%;
-    max-width:1000px;
+    max-width: 1000px;
     padding: 50px 0;
+}
+
+
+/* ==========================================
+   📱 ここからスマホ・タブレット用の調整 (画面幅768px以下)
+   ========================================== */
+@media (max-width: 768px) {
+    /* 1. タイトルをスマホサイズに */
+    #ti h1 {
+        font-size: 28px; 
+        white-space: normal; /* スマホの画面幅に合わせて自動改行を許可 */
+    }
+
+    /* 2. 文字サイズ全体をスマホ用に縮小 */
+    #count { font-size: 60px; }
+    #bt { font-size: 35px; }
+    #timer { font-size: 65px; }
+
+    /* 3. ボタンをスマホの画面幅（%）にフィットさせる */
+    #buttons {
+        gap: 30px; /* ボタン同士の間隔を狭く */
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    /* プラス・マイナスボタン */
+    button {
+        width: 40%;   /* カードの横幅に対して40%ずつの大きさに自動調整 */
+        height: 100px;
+        font-size: 60px;
+    }
+
+    /* 入場・ストップボタン */
+    #start, #stop {
+        width: 85%;   /* 画面幅に収まるよう自動調整 */
+        font-size: 32px;
+    }
+    #start { height: 120px; }
+    #stop { height: 90px; }
 }
